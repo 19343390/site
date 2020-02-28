@@ -1,9 +1,0 @@
-language: python
-
-matrix:
-  include:
-    - env: ENV_FILE="ci/py38-conda-forge.yaml"
-
-script: make pages
-
-after_success: ./push.sh
