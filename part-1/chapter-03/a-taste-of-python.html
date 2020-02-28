@@ -1,0 +1,919 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>A taste of Python &#8212; Introduction to Python for Geographic Data Analysis  documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link href="../../_static/css/theme.css" rel="stylesheet">
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div id="navbar-menu" class="collapse navbar-collapse">
+  <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="../../index.html">Home</a>
+    </li>
+    
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../../front-matter/index.html">Front matter</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../index.html">Part 1: Python essentials</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../../part-2/index.html">Part 2: Interacting with geographic data</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../../part-3/index.html">Part 3: Geographic data analysis case studies</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../../appendices/index.html">Appendices</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="../../authors.html">About the authors</a>
+    </li>
+    
+    
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/Python-GIS-book" target="_blank" rel="noopener">
+          <span><i class="fab fa-github-square"></i></span>
+        </a>
+      </li>
+    
+    
+      <li class="nav-item">
+        <a class="nav-link" href="https://twitter.com/pythongis" target="_blank" rel="noopener">
+          <span><i class="fab fa-twitter-square"></i></span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+
+<div class="tocsection onthispage"><i class="fas fa-list"></i> On this page</div>
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#general-information" class="nav-link">General information</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sources" class="nav-link">Sources</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#about-this-document" class="nav-link">About this document</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#getting-started" class="nav-link">Getting started</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#variables-math-and-functions" class="nav-link">Variables, math and functions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#simple-python-math" class="nav-link">Simple Python math</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#functions" class="nav-link">Functions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#math-operations" class="nav-link">Math operations</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#check-your-understanding" class="nav-link">Check your understanding</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#combining-functions" class="nav-link">Combining functions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#variables" class="nav-link">Variables</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id1" class="nav-link">Check your understanding</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#updating-variables" class="nav-link">Updating variables</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#variable-values" class="nav-link">Variable values</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-types" class="nav-link">Data types</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id2" class="nav-link">Check your understanding</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#character-input" class="nav-link">Character input</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+              
+            </div>
+
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+              <div>
+                
+  <div class="section" id="a-taste-of-python">
+<h1>A taste of Python<a class="headerlink" href="#a-taste-of-python" title="Permalink to this headline">¶</a></h1>
+<p>We will start our Python lesson by learning a bit of the basic
+operations you can perform using Python.</p>
+<div class="section" id="general-information">
+<h2>General information<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sources">
+<h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
+<p>This lesson is inspired by the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming in Python
+lessons</a>
+from the <a class="reference external" href="http://software-carpentry.org">Software Carpentry
+organization</a>.</p>
+</div>
+<div class="section" id="about-this-document">
+<h3>About this document<a class="headerlink" href="#about-this-document" title="Permalink to this headline">¶</a></h3>
+<p>This is a <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>. This particular
+notebook is designed to introduce you to a few of the basic concepts of
+programming in Python. The contents of this document are divided into
+cells, which can contain Markdown-formatted text, Python code, or raw
+text. You can execute a snippet of code in a cell by pressing
+<strong>Shift-Enter</strong>. Try this out with the examples below.</p>
+</div>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
+<p>Presumably if you have made it this far, you have already opened this
+Jupyter Notebook using Binder, the CSC notebooks server, or on your own
+computer. If not, you can launch <a class="reference external" href="http://jupyterlab.readthedocs.io/en/stable/">Jupyter
+Lab</a> by clicking on
+either of the launch buttons at the top of this document or by typing
+the following in a terminal window.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
+</pre></div>
+</div>
+<p>This should open a new Jupyter Lab session from which you can open this
+document by navigating its location in the <strong>Files</strong> tab and double
+clicking on it. After that you should be ready to go.</p>
+</div>
+</div>
+<div class="section" id="variables-math-and-functions">
+<h2>Variables, math and functions<a class="headerlink" href="#variables-math-and-functions" title="Permalink to this headline">¶</a></h2>
+<p>We will start our Python lesson by learning a bit of the basic
+operations you can perform using Python.</p>
+<div class="section" id="simple-python-math">
+<h3>Simple Python math<a class="headerlink" href="#simple-python-math" title="Permalink to this headline">¶</a></h3>
+<p>Python can be used as a simple calculator. Remember, you can press
+<strong>Shift-Enter</strong> to execute the code in the cells below. Try it out by
+typing <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">7</span></code> and see what you get.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>If you want to edit and re-run some code, simply make changes to the
+cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<p>You can use Python for more advanced math by using functions. Functions
+are pieces of code that perform a single action such as printing
+information to the screen (e.g., the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function). Functions
+exist for a huge number of operations in Python.</p>
+<p>Let’s try out a few simple examples using functions to find the sine or
+square root of a value. You can type <code class="docutils literal notranslate"><span class="pre">sin(3)</span></code> or <code class="docutils literal notranslate"><span class="pre">sqrt(4)</span></code> into the
+cells below to test this out.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="n">b5fc2868c51</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;sin&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mf">317e033</span><span class="n">d29d5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;sqrt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>Wait, what? Python can’t calculate square roots or do basic
+trigonometry? Of course it can, but we need one more step.</p>
+</div>
+<div class="section" id="math-operations">
+<h3>Math operations<a class="headerlink" href="#math-operations" title="Permalink to this headline">¶</a></h3>
+<p>The list of basic arithmetic operations that can be done by default in
+Python is in the table below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 13%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Example syntax</p></th>
+<th class="head"><p>Returned value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Subtraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Exponentiation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2**3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>For anything more advanced, we need to load a <em>module</em>. For math
+operations, this module is called <em>math</em> and it can be loaded by typing
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>. Try that below.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+<p>Now that we have access to functions in the math module, we can use it
+by typing the module name, a period (dot), and the the name of the
+function we want to use. For example, <code class="docutils literal notranslate"><span class="pre">math.sin(3)</span></code>. Try this with the
+sine and square root examples from above.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.1411200080598672
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>Let’s summarize what we’ve just seen with modules:</p>
+<ol class="arabic simple">
+<li><p>A <em>module</em> is a group of code items such as functions that are
+related to one another. Individual modules are often in a group
+referred to as a <em>library</em>.</p></li>
+<li><p>Modules can be loaded using <code class="docutils literal notranslate"><span class="pre">import</span></code>. Functions that are part of
+the module <code class="docutils literal notranslate"><span class="pre">modulename</span></code> can then be used by typing
+<code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code> is a function
+that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by typing
+<code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.</p></li>
+<li><p>Within a given Jupyter Notebook the variables you define earlier in
+the notebook will be available for use in the cells that follow as
+long as you have already executed the cells.</p></li>
+<li><p>Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>. Type this in
+the cell below to see the value of the contant <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</p></li>
+</ol>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="section" id="check-your-understanding">
+<h4>Check your understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h4>
+<p>Use the empty Python cell below to calculate the sine of pi. What value
+do you expect for this calculation? Did you get the expected result?</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your code on the line(s) below. Note that lines starting with &quot;#&quot; are ignored in Python.</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+</div>
+</div>
+<div class="section" id="combining-functions">
+<h3>Combining functions<a class="headerlink" href="#combining-functions" title="Permalink to this headline">¶</a></h3>
+<p>Functions can also be combined. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function returns values
+within the parentheses as text on the screen. Below, try printing the
+value of the square root of four.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>You can also combine text with other calculated values using the
+<code class="docutils literal notranslate"><span class="pre">print()</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">print('Two</span> <span class="pre">plus</span> <span class="pre">two</span> <span class="pre">is',</span> <span class="pre">2+2)</span></code>
+would generate text reading ‘Two plus two is 4’. Combine the <code class="docutils literal notranslate"><span class="pre">print()</span></code>
+function with the <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> function in the cell below to produce
+text that reads ‘The square root of 4 is 2.0’.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The square root of 4 is 2.0
+</pre></div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p><em>Variables</em> can be used to store values calculated in expressions and
+used for other calculations. Assigning value to variables is
+straightforward. To assign a value, you simply type
+<code class="docutils literal notranslate"><span class="pre">variable_name</span> <span class="pre">=</span> <span class="pre">value</span></code>, where <code class="docutils literal notranslate"><span class="pre">variable_name</span></code> is the name of the
+variable you wish to define. In the cell below, define a variable called
+<code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>, assign it a value of ‘10.0’, and then print that
+variable value using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. Note that you need to do
+this on two separate lines.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>10.0
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>As we did above, you can combine text and even use some math when
+printing out variable values. The idea is similar to the examples of
+adding 2+2 or calculating the square root of four from the previous
+section. In the cell below, print out the value of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> in
+degrees Fahrenheit by multiplying <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> by 9/5 and adding 32.
+This should be done within the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to produce output
+that reads ‘Temperature in Fahrenheit: 50.0’.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Temperature in Fahrenheit: 50.0
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="section" id="id1">
+<h4>Check your understanding<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Use the empty Python cell below to define a variable and print its value
+to the screen using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. The variable value can be
+anything you like, and you can even consider defining several variables
+and printing them out together. Consider using pothole_case_naming for
+your variable name.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your code on the line(s) below. Note that lines starting with &quot;#&quot; are ignored in Python.</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+</div>
+</div>
+<div class="section" id="updating-variables">
+<h3>Updating variables<a class="headerlink" href="#updating-variables" title="Permalink to this headline">¶</a></h3>
+<p>Values stored in variables can also be updated. Let’s redefine the value
+of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> to be equal to 15.0 and print its value in the cells
+below.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">15.0</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>temperature in Celsius is now: 15.0
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="alert alert-warning docutils container">
+<p><strong>Warning</strong></p>
+<p>If you try to run some code that accesses a variable that has not yet
+been defined you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> message. Try printing out
+the value of the variable <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> using the <code class="docutils literal notranslate"><span class="pre">print()</span></code>
+function in the cell below.</p>
+</div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Celsius:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span> <span class="o">*</span> <span class="p">(</span><span class="n">tempFahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mf">2067e78</span><span class="n">f4444</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">----&gt; 1 print(&#39;Temperature</span> in <span class="ni">Celsius:&#39;, 5/9 * </span><span class="nt">(tempFahrenheit - 32))</span>
+
+<span class="ne">NameError</span>: name &#39;tempFahrenheit&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="alert alert-info docutils container">
+<p><strong>Note</strong></p>
+<p>One of the interesting things here is that if we define the undefined
+variable in a cell lower down in the notebook and execute that cell,
+we can return to the earlier cell and the code should now work. That
+was a bit of a complicated sentence, so let’s test this all out.
+First, let’s define a variable called <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> in the cell
+below and assign it to be equal to <code class="docutils literal notranslate"><span class="pre">9/5</span> <span class="pre">*</span> <span class="pre">temp_celsius</span> <span class="pre">+</span> <span class="pre">32</span></code>, the
+conversion factor from temperatures in Celsius to Fahrenheit. Then,
+return to the cell above this text and run that cell again. See how
+the error message has gone away? <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> has now been
+defined and thus the cell above no longer generates a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>
+when the code is executed.</p>
+<p>Also, the number beside the cell, for example <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you
+the order in which the Python cells have been executed. This way you
+can see a history of the order in which you have run the cells.</p>
+</div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+<p>Just to check their current values, print out the values of
+<code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> in the cell below.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and in Fahrenheit:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>temperature in Celsius: 15.0 and in Fahrenheit: 59.0
+</pre></div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="section" id="variable-values">
+<h3>Variable values<a class="headerlink" href="#variable-values" title="Permalink to this headline">¶</a></h3>
+<p>Changing the value of a variable does not affect other variable values.
+Let’s redefine <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> to be equal to 20.0, and print out the
+values of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code>.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and temperature in Fahrenheit is still:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
+</pre></div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="section" id="data-types">
+<h3>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h3>
+<p>There are 4 basic <em>data types</em> in Python as shown in the table below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 45%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data type name</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>Whole integer values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>Decimal values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3.1415</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>Character strings</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'Hot'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>True/false values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The data type can be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will
+see, the data types are important because some are not compatible with
+one another.</p>
+<p>Let’s define a variable <code class="docutils literal notranslate"><span class="pre">weatherForecast</span></code> and assign it the value
+<code class="docutils literal notranslate"><span class="pre">'Hot'</span></code>. After this, we can check its data type using the <code class="docutils literal notranslate"><span class="pre">type()</span></code>
+function.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>Let’s also check the type of <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code>. What happens if you try
+to combine <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">weatherForecast</span></code> in a single math
+equation such as
+<code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span> <span class="pre">=</span> <span class="pre">tempFahrenheit</span> <span class="pre">+</span> <span class="pre">5.0</span> <span class="pre">*</span> <span class="pre">weatherForecast</span></code>?</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tempFahrenheit</span><span class="p">)</span>
+<span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="n">tempFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mf">41e07022</span><span class="n">ce91</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">tempFahrenheit</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="n">tempFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
+
+<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>In this case we get at <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because we are trying to execute a
+math operation with data types that are not compatible. There is no way
+in Python to multpily numbers with a character string.</p>
+<div class="section" id="id2">
+<h4>Check your understanding<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>As it turns out, you can do some math with character strings in Python.
+Define two variables and assign them character string values in the
+Python cell below. What happens if you try to add two character strings
+together? Can you subtract them? Which other math operations work for
+character strings?</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your code on the line(s) below.</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+</div>
+</div>
+<div class="section" id="character-input">
+<h3>Character input<a class="headerlink" href="#character-input" title="Permalink to this headline">¶</a></h3>
+<p>Python and Jupyter notebooks also let us interact in another way with
+our code! The built-in
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html?highlight=input#input">input()</a>
+function reads a line from input and returns it as a string.</p>
+<p>Let’s try it out. To start, we can define a varaible <code class="docutils literal notranslate"><span class="pre">place</span></code> and
+assign its value using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to prompt the user for
+the location where they are from (e.g.,
+<code class="docutils literal notranslate"><span class="pre">input('Where</span> <span class="pre">are</span> <span class="pre">you</span> <span class="pre">from?</span> <span class="pre">')</span></code>). When the cell is run, the user (you)
+can type in their response. Once <code class="docutils literal notranslate"><span class="pre">place</span></code> is defined, we can say
+something good about where the user is from (e.g.,
+<code class="docutils literal notranslate"><span class="pre">print(place,</span> <span class="pre">'is</span> <span class="pre">a</span> <span class="pre">nice</span> <span class="pre">place!')</span></code>).</p>
+<div class="alert alert-warning docutils container">
+<p><strong>Warning</strong></p>
+<p>Jupyter Notebooks might sometimes get stuck when using the
+<code class="docutils literal notranslate"><span class="pre">input()</span></code> function. If this happens, restart the kernel and run the
+cell again (<strong>Kernel</strong> -&gt; <strong>Restart Kernel…</strong>).</p>
+<p>Also, we realize these cells <strong>will not render properly on the course
+website</strong>, but should work just fine in Binder or using the CSC
+notebooks. Sorry.</p>
+</div>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Where are you from? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">place</span><span class="p">,</span> <span class="s1">&#39;is a nice place!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="n">d8ebf4ec1af1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">place</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Where are you from? &#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">place</span><span class="p">,</span> <span class="s1">&#39;is a nice place!&#39;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda/envs/python-gis/lib/python3.8/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">852</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">--&gt; </span><span class="mi">853</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>Let’s try another example in the cell below using the similar approach.
+Ask the user for a temperature in Celsius using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function
+and print the input value to the screen.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How cold can it be in Vantaa (in degrees Celsius)? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;degrees Celsius is quite cold!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="n">a821fcc29b0c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">----&gt; 1 temp_celsius = input(&#39;How cold can it be</span> in <span class="ni">Vantaa </span><span class="nt">(in degrees Celsius)? &#39;)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;degrees Celsius is quite cold!&#39;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda/envs/python-gis/lib/python3.8/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">852</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">--&gt; </span><span class="mi">853</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>What is the data type of variable <code class="docutils literal notranslate"><span class="pre">place</span></code>? What about the other
+variable you defined? Check their data types using the cell below.</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">place</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="n">ac42a1786083</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">place</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;place&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div></div>
+<p>What happens when you try to convert your Celsius temperature value to
+Fahrenheit using the equation from earlier in the lesson?</p>
+<div class="jupyter_container docutils container">
+<div class="thebelab-code" data-executable="true" data-language="ipython"><div class="docutils container">
+<div class="code_cell highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+</div><div class="thebelab-output" data-output="true"><div class="docutils container">
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<button title="Make live" class="thebelab-button" id="thebelab-activate-button" onclick="initThebelab()">Make live</button>
+<script type="text/x-thebe-config">
+{"requestKernel": true, "binderOptions": {"repo": "binder-examples/requirements"}, "predefinedOutput": true}
+</script>
+<script type="text/javascript" src="https://unpkg.com/thebelab@^0.4.0"></script>
+
+              </div>
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/theme.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-159257488-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Henrikki Tenkanen, Vuokko Heikinheimo, and David Whipp.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
