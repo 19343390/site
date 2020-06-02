@@ -32,5 +32,5 @@ docs_dir_name = os.path.basename(current_dir())
 subprocess.run(["jb", "build", f"{docs_dir_name}/"], shell=True, cwd=root_directory)
 
 # Replace Sphinx build with Jupyterbook
-shutil.rmtree("_build")
+shutil.rmtree(os.path.join(root_directory, "_build"))
 shutil.copytree(os.path.join(current_dir(), "_build"), root_directory)
