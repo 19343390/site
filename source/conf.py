@@ -8,6 +8,8 @@ version = release = "0.5.2"
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
+master_doc = "index"
+
 # Build Jupyter-book
 import subprocess
 import os
