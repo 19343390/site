@@ -13,10 +13,24 @@ master_doc = "index"
 # Build Jupyter-book
 import subprocess
 import os
+import shutil
+
+
+def current_dir():
+    return os.path.abspath(os.path.dirname(__file__))
 
 
 def get_parent_dir():
-    os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+    return os.path.dirname(current_dir())
 
+# Build the Jupyter-book pages
+# ----------------------------
 
-subprocess.run(["jb", "build", "source/"], shell=True, cwd=get_parent_dir())
+root_directory = get_parent_dir()
+docs_dir_name = os.path.basename(current_dir())
+
+subprocess.run(["jb", "build", f"{docs_dir_name}/"], shell=True, cwd=root_directory)
+
+# Replace Sphinx build with Jupyterbook
+shutil.rmtree("_build")
+shutil.copytree(os.path.join(current_dir(), "_build"), root_directory)
