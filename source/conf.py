@@ -9,9 +9,9 @@ version = release = "0.5.2"
 templates_path = ["_templates"]
 
 
-def source_read_handler(app, docname, source):
+def jupyter_book_build_handler(app, docname, source):
     print('This would execute the Jupyter-book build command ...')
 
 
 def setup(app):
-    app.connect('jupuyter-book-build', source_read_handler)
+    app.connect('jupyter-book-build', jupyter_book_build_handler)
