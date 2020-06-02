@@ -1,0 +1,4 @@
+Sphinx index
+============
+
+Placeholder.
