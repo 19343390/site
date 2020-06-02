@@ -8,10 +8,13 @@ version = release = "0.5.2"
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
+# Build Jupyter-book
+import subprocess
+import os
 
-def jupyter_book_build_handler(app, docname, source):
-    print('This would execute the Jupyter-book build command ...')
+
+def get_parent_dir():
+    os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 
 
-def setup(app):
-    app.connect('jupyter-book-build', jupyter_book_build_handler)
+subprocess.run(["jb", "build", "source/"], shell=True, cwd=get_parent_dir())
